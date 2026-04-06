@@ -1,8 +1,8 @@
 name: deformable_detr_r50
 family: mmdet
 architecture: deformable_detr
-config_path: ""
-checkpoint_path: ""
-device: cpu
+config_path: /home/karthikadari/occdet-calib/checkpoints/deformable-detr-refine-twostage_r50_16xb2-50e_coco.py
+checkpoint_path: /home/karthikadari/occdet-calib/checkpoints/deformable-detr-refine-twostage_r50_16xb2-50e_coco_20221021_184714-acc8a5ff.pth
+device: cuda:0
 score_thr: 0.001
 max_per_img: 300

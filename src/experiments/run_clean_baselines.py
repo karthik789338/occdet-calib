@@ -8,6 +8,8 @@ import pandas as pd
 import yaml
 
 from src.detectors.yolo_wrapper import YOLOWrapper
+from src.detectors.fcos_wrapper import FCOSWrapper
+from src.detectors.deformable_detr_wrapper import DeformableDETRWrapper
 
 
 def load_yaml(path: str):
@@ -26,25 +28,54 @@ def collect_images(image_dir: str, limit: int | None = None) -> List[str]:
     return image_paths
 
 
+def build_detector(model_cfg):
+    family = model_cfg.get("family")
+    architecture = model_cfg.get("architecture")
+
+    if family == "yolo":
+        return YOLOWrapper(
+            weights=model_cfg["weights"],
+            device=model_cfg.get("device", "cpu"),
+            conf_threshold=model_cfg.get("conf_threshold", 0.001),
+            iou_threshold=model_cfg.get("iou_threshold", 0.7),
+            imgsz=model_cfg.get("imgsz", 640),
+            max_det=model_cfg.get("max_det", 300),
+            model_name=model_cfg.get("name", "yolo_v8m"),
+        )
+
+    if family == "mmdet" and architecture == "fcos":
+        return FCOSWrapper(
+            config_path=model_cfg["config_path"],
+            checkpoint_path=model_cfg["checkpoint_path"],
+            device=model_cfg.get("device", "cuda:0"),
+            score_thr=model_cfg.get("score_thr", 0.001),
+            max_per_img=model_cfg.get("max_per_img", 300),
+            model_name=model_cfg.get("name", "fcos_r50"),
+        )
+
+    if family == "mmdet" and architecture == "deformable_detr":
+        return DeformableDETRWrapper(
+            config_path=model_cfg["config_path"],
+            checkpoint_path=model_cfg["checkpoint_path"],
+            device=model_cfg.get("device", "cuda:0"),
+            score_thr=model_cfg.get("score_thr", 0.001),
+            max_per_img=model_cfg.get("max_per_img", 300),
+            model_name=model_cfg.get("name", "deformable_detr_r50"),
+        )
+
+    raise ValueError(f"Unsupported model config: {model_cfg}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run clean baseline inference.")
     parser.add_argument("--image_dir", type=str, required=True, help="Directory of images")
     parser.add_argument("--output_csv", type=str, required=True, help="Where to save predictions CSV")
-    parser.add_argument("--model_config", type=str, required=True, help="Path to YOLO model config YAML")
+    parser.add_argument("--model_config", type=str, required=True, help="Path to model config YAML")
     parser.add_argument("--limit", type=int, default=50, help="Max number of images")
     args = parser.parse_args()
 
     model_cfg = load_yaml(args.model_config)
-
-    detector = YOLOWrapper(
-        weights=model_cfg["weights"],
-        device=model_cfg.get("device", "cpu"),
-        conf_threshold=model_cfg.get("conf_threshold", 0.001),
-        iou_threshold=model_cfg.get("iou_threshold", 0.7),
-        imgsz=model_cfg.get("imgsz", 640),
-        max_det=model_cfg.get("max_det", 300),
-        model_name=model_cfg.get("name", "yolo_v8m"),
-    )
+    detector = build_detector(model_cfg)
 
     image_paths = collect_images(args.image_dir, args.limit)
     if not image_paths:

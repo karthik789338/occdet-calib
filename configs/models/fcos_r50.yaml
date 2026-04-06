@@ -1,9 +1,8 @@
 name: fcos_r50
 family: mmdet
 architecture: fcos
-config_path: ""
-checkpoint_path: ""
-device: cpu
+config_path: /home/karthikadari/occdet-calib/checkpoints/fcos_r50-caffe_fpn_gn-head_1x_coco.py
+checkpoint_path: /home/karthikadari/occdet-calib/checkpoints/fcos_r50_caffe_fpn_gn-head_1x_coco-821213aa.pth
+device: cuda:0
 score_thr: 0.001
-nms_iou_thr: 0.6
 max_per_img: 300
