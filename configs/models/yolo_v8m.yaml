@@ -1,0 +1,8 @@
+name: yolo_v8m
+family: yolo
+weights: yolov8m.pt
+device: cpu
+conf_threshold: 0.001
+iou_threshold: 0.7
+imgsz: 640
+max_det: 300

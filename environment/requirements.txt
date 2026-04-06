@@ -1,0 +1,16 @@
+numpy
+pandas
+pyyaml
+matplotlib
+scipy
+scikit-learn
+pycocotools
+opencv-python
+pillow
+tqdm
+jupyter
+notebook
+ultralytics
+torch
+torchvision
+torchaudio

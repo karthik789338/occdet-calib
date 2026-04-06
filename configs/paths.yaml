@@ -1,0 +1,8 @@
+repo_root: C:/Users/karth/Desktop/occdet-calib
+
+data_root: C:/Users/karth/Desktop/occdet-calib/data
+raw_root: C:/Users/karth/Desktop/occdet-calib/data/raw
+interim_root: C:/Users/karth/Desktop/occdet-calib/data/interim
+processed_root: C:/Users/karth/Desktop/occdet-calib/data/processed
+external_root: C:/Users/karth/Desktop/occdet-calib/data/external
+outputs_root: C:/Users/karth/Desktop/occdet-calib/outputs

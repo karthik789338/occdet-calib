@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS/editor
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Data
+data/raw/
+data/interim/
+data/processed/
+data/external/pretrained_weights/
+
+# Outputs
+outputs/runs/
+outputs/figures/
+outputs/tables/
+outputs/logs/
+
+# Weights and large artifacts
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.parquet
+*.feather
+*.npy
+*.npz
+
+# Logs
+*.log
+
+# Optional local scratch
+full-script.txt
+Pasted text.txt

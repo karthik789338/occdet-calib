@@ -1,0 +1,7 @@
+seed: 42
+
+occdet_v1:
+  base_images_total: 2000
+  train_images: 1200
+  val_images: 300
+  test_images: 500

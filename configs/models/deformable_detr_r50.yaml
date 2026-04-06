@@ -1,0 +1,8 @@
+name: deformable_detr_r50
+family: mmdet
+architecture: deformable_detr
+config_path: ""
+checkpoint_path: ""
+device: cpu
+score_thr: 0.001
+max_per_img: 300

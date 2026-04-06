@@ -1,0 +1,8 @@
+target_classes:
+  - person
+  - car
+  - truck
+  - bus
+  - bicycle
+  - motorcycle
+  - stop sign
