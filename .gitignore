@@ -9,6 +9,8 @@ __pycache__/
 .venv/
 venv/
 env/
+.venv_inpaint/
+.venv_inpaint_clean/
 
 # OS/editor
 .vscode/
@@ -22,10 +24,7 @@ data/processed/
 data/external/pretrained_weights/
 
 # Outputs
-outputs/runs/
-outputs/figures/
-outputs/tables/
-outputs/logs/
+outputs/
 
 # Weights and large artifacts
 *.pt
@@ -36,6 +35,7 @@ outputs/logs/
 *.feather
 *.npy
 *.npz
+.cache/
 
 # Logs
 *.log

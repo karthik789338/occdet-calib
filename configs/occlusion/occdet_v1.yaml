@@ -1,0 +1,12 @@
+name: occdet_calib_v1
+
+target_num_images: 2000
+nominal_occlusion_levels: [0.0, 0.2, 0.4, 0.6, 0.8]
+
+min_box_area: 256
+max_original_occlusion: 0.4
+min_target_instances_per_image: 1
+
+min_occluder_mask_area: 512
+max_occluder_mask_area: 50000
+max_occluders_per_class: 300
