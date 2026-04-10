@@ -163,7 +163,7 @@ If you use OccDet-Calib in your work, please cite:
   title   = {OccDet-Calib: Dangerous Zones in Occluded Object Detection},
   author  = {Adari, Karthik and Uppala, Yojitha and Uppala, Sai Ram},
   journal = {Journal of Visual Communication and Image Representation},
-  year    = {2025},
+  year    = {2026},
   note    = {submitted}
 }
 ```
