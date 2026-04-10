@@ -242,5 +242,3 @@ You should **avoid**:
 - Copying the paper abstract verbatim (short paraphrase is fine).
 - Including any confidential reviewer comments or rebuttal details.
 - Making claims that go beyond what your experiments show.
-
-If you share your actual repo structure (folders and scripts) I can tailor the command examples to match exactly.
