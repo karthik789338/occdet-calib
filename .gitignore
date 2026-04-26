@@ -22,6 +22,9 @@ data/raw/
 data/interim/
 data/processed/
 data/external/pretrained_weights/
+release_package/
+release_package.tar.gz
+checkpoints/
 
 # Outputs
 outputs/
